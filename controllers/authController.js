@@ -33,7 +33,7 @@ const registerUser = async (req, res) => {
 const signup = async (req, res) => {
   const { name, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
-  // password = hashedPassword;
+  //password = hashedPassword;
   const response = await userModel.create({
     name,
     email,
@@ -62,5 +62,9 @@ const logout = (req, res) => {
   res.locals.user = null;
   res.render("auth/login");
 };
+import bcrypt from "bcrypt";
+
+const hashed = await bcrypt.hash("6789", 10);
+console.log(hashed);
 
 export { login, validateUser, register, registerUser, logout, signup,signin };
