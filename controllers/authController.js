@@ -62,9 +62,5 @@ const logout = (req, res) => {
   res.locals.user = null;
   res.render("auth/login");
 };
-import bcrypt from "bcrypt";
-
-const hashed = await bcrypt.hash("6789", 10);
-console.log(hashed);
 
 export { login, validateUser, register, registerUser, logout, signup,signin };
